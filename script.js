@@ -9,7 +9,7 @@ canvas.width = size.width;
 canvas.height = size.height;
 document.body.append(canvas);
 
-const ctx = canvas.getContext('2d')!;
+const ctx = canvas.getContext('2d');
 ctx.fillStyle = '#000000';
 ctx.fillRect(0, 0, size.width, size.height);
 
@@ -17,20 +17,20 @@ class Ball {
   x;
   y;
   r;
-  constructor(x: number, y: number, r: number) {
+  constructor(x, y, r) {
     this.x = x;
     this.y = y;
     this.r = r;
   }
 
-  draw(ctx: CanvasRenderingContext2D) {
+  draw(ctx) {
     ctx.beginPath();
     ctx.fillStyle = '#ff0000';
     ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, false);
     ctx.fill();
   }
 
-  move(ctx: CanvasRenderingContext2D, dx: number, dy: number) {
+  move(ctx, dx, dy) {
     ctx.beginPath();
     ctx.fillStyle = '#ff0000';
     ctx.arc(dx, dy, this.r, 0, Math.PI * 2, false);
@@ -44,7 +44,7 @@ const clear = () => {
   ctx.fillRect(0, 0, size.width, size.height);
 };
 
-const getRandomNumber = (max: number, min: number) => {
+const getRandomNumber = (max, min) => {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
