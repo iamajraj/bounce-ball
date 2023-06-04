@@ -31,11 +31,9 @@ class Ball {
   }
 
   move(ctx: CanvasRenderingContext2D, dx: number, dy: number) {
-    this.x = dx;
-    this.y = dy;
     ctx.beginPath();
     ctx.fillStyle = '#ff0000';
-    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, false);
+    ctx.arc(dx, dy, this.r, 0, Math.PI * 2, false);
     ctx.fill();
   }
 }
@@ -57,19 +55,13 @@ const ball_pos = {
   y: getRandomNumber(size.height - 50, 50),
 };
 
-console.log(ball_pos.x);
-console.log(ball_pos.y);
-
 const velocity = {
   x: 2,
   y: 5,
 };
 
-const FPS = 5;
 const myball = new Ball(ball_pos.x, ball_pos.y, RADIUS);
 myball.draw(ctx);
-
-let turn_left = false;
 
 const animate = () => {
   requestAnimationFrame(animate);

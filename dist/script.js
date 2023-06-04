@@ -22,11 +22,9 @@ var Ball = /** @class */ (function () {
         ctx.fill();
     };
     Ball.prototype.move = function (ctx, dx, dy) {
-        this.x = dx;
-        this.y = dy;
         ctx.beginPath();
         ctx.fillStyle = '#ff0000';
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, false);
+        ctx.arc(dx, dy, this.r, 0, Math.PI * 2, false);
         ctx.fill();
     };
     return Ball;
@@ -44,16 +42,12 @@ var ball_pos = {
     x: getRandomNumber(size.width - 50, 50),
     y: getRandomNumber(size.height - 50, 50),
 };
-console.log(ball_pos.x);
-console.log(ball_pos.y);
 var velocity = {
     x: 2,
     y: 5,
 };
-var FPS = 5;
 var myball = new Ball(ball_pos.x, ball_pos.y, RADIUS);
 myball.draw(ctx);
-var turn_left = false;
 var animate = function () {
     requestAnimationFrame(animate);
     clear();
